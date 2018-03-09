@@ -1,0 +1,24 @@
+.container {
+    background: rgb(177, 177, 177);
+    margin: 0 auto;
+    position: relative;
+    width: 1200px;
+}
+
+.container::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.movies {
+    box-sizing: border-box;
+    float: left;
+    width: 33.3333%;
+    padding: 10px;
+    border: 1px solid black;
+}
+
+.movies:nth-child(3n+4) {
+    clear: both;
+}
