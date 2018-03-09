@@ -65,7 +65,8 @@ function createTable(data) {
         div.className = 'movies';
         let img = document.createElement('img');
         img.src = '/img/covers/' + formatTitle(data[i].title) + '.jpg';
-        img.alt = data[i].name;
+        let img2 = document.createElement('img');
+        img.alt = data[i].title;
         let pTitle = document.createElement('p');
         pTitle.textContent = 'Cím: ' + data[i].title;
         let pTime = document.createElement('p');
@@ -82,11 +83,15 @@ function createTable(data) {
         pDir.textContent = 'Rendező: ' + charDir.join(', ');
         let pCast = document.createElement('p');
         for (var j in data[i].cast) {
+
+            img2.src = '/img/actors/' + formatTitle(data[i].cast[j].name) + '.jpg';
+            img2.alt = data[i].cast[j].name;
             tmp = data[i].cast[j];
             charCast.push(tmp.name + ` (${tmp.characterName}), ${tmp.birthYear}, ${tmp.birthCountry} ${tmp.birthCity}`);
         }
         pCast.textContent = 'Szereplők: ' + charCast.join(', ');
         div.appendChild(img);
+        div.appendChild(img2);
         div.appendChild(pTitle);
         div.appendChild(pTime);
         div.appendChild(pPrem);
@@ -230,46 +235,4 @@ function statDetails(data) {
     avg = (sum / data.length) / 60;
     document.getElementById('runtime').innerHTML = `Az összes film hossza: ${(sum/60).toFixed(2)} óra.`;
     document.getElementById('avg').innerHTML = `Az összes film hosszának átlaga: ${avg.toFixed(2)} óra.`;
-
-    function filterCast(data) {
-        let noOfCast = new Map();
-        for (let i = 0; i < data.length; i++) {
-            for (let j = 0; j < data[i].cast; j++) {
-                if (noOfCast.has(data[i].cast[j].name)) {
-                    let currentValue = noOfCast.get(data[i].cast[j].name) + 1;
-                    noOfCast.set(data[i].cast[j].name, currentValue);
-                } else {
-                    noOfCast.set(data[i].cast[j].name, 1);
-                }
-            }
-        }
-        for (let i of noOfCast) {
-            console.log(`Színész neve: ${i[0]}. Filmjeinek száma: ${i[1]}.`);
-        }
-        console.log(noOfCast);
-    };
-    filterCast(data);
-
-    /*     let data1 = [];
-        let dataname = [];
-        for (let i in data) {
-            for (let j in data[i].cast) {
-                if (!data1.includes(data[i].cast[j].name)) {
-                    data1.push(data[i].cast[j].name);
-                    dataname.push({
-                        name: data[i].cast[j].name,
-                        movie: 0
-                    });
-                }
-                for (let k in dataname) {
-                    for (let l in dataname[k].cast) {
-                        if (dataname[k].cast[l].name == data[k].cast[l].name) {
-                            dataname[k].cast[l].movie++;
-                        }
-                    }
-                }
-            }
-
-        }
-        console.log(dataname); */
 }

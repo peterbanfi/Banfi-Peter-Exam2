@@ -8,6 +8,7 @@ body {
     margin: 0 auto;
     position: relative;
     width: 1200px;
+    border-radius: 10px;
 }
 
 .container::after {
@@ -25,10 +26,16 @@ body {
     margin: 10px;
     height: 526px;
     border-radius: 10px;
+    overflow: hidden;
 }
 
 .movies:nth-child(3n+4) {
     clear: both;
+}
+
+.movies img:nth-child(2) {
+    width: 50px;
+    border-radius: 50px;
 }
 
 .movies:hover {
@@ -47,7 +54,6 @@ body {
     opacity: 1;
     overflow: hidden;
     box-shadow: 0 0 20px white;
-    border-radius: 10px;
 }
 
 .search {
@@ -55,7 +61,18 @@ body {
     margin-bottom: 40px;
 }
 
+.stat {
+    background: linear-gradient(to right, rgba(142, 242, 255, 0), rgb(0, 143, 179));
+}
+
 .search h3 {
+    border-top: 1px solid rgba(0, 0, 0, 0.158);
+    margin-top: 0;
+    padding-top: 20px;
+    text-align: center;
+}
+
+.stat h3 {
     padding-top: 20px;
     text-align: center;
 }
@@ -84,6 +101,18 @@ body {
 }
 
 #searchButton:hover {
+    cursor: pointer;
+    background: rgb(2, 116, 161);
+}
+
+#deleteButton {
+    background: white;
+    height: 30px;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+#deleteButton:hover {
     cursor: pointer;
     background: rgb(2, 116, 161);
 }
