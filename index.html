@@ -11,7 +11,26 @@
 
 <body>
     <div class="container">
-        <div class="main">
+        <div class="search">
+            <h3>Stat</h3>
+            <p id="runtime"></p>
+            <p id="avg"></p>
+            <p id="allActors"></p>
+        </div>
+        <div class="search">
+            <h3>Search</h3>
+            <div id="searchInput">
+                <select name="options" id="options">
+                    <option>Title</option>
+                    <option>Director</option>
+                    <option>Cast</option>
+                </select>
+                <input type="text" id="searchInputField">
+                <input type="button" name="searchButton" id="searchButton" value="search">
+            </div>
+            <div class="results"></div>
+        </div>
+        <div class="main" id="forDelete">
 
         </div>
     </div>

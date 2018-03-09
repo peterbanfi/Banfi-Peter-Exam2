@@ -1,5 +1,10 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: black;
+}
+
 .container {
-    background: rgb(177, 177, 177);
+    background: rgb(255, 255, 255);
     margin: 0 auto;
     position: relative;
     width: 1200px;
@@ -14,11 +19,71 @@
 .movies {
     box-sizing: border-box;
     float: left;
-    width: 33.3333%;
+    width: 31.3333%;
     padding: 10px;
     border: 1px solid black;
+    margin: 10px;
+    height: 526px;
+    border-radius: 10px;
 }
 
 .movies:nth-child(3n+4) {
     clear: both;
+}
+
+.movies:hover {
+    background: blanchedalmond;
+}
+
+.movies img {
+    opacity: .8;
+    box-shadow: 0 0 20px white;
+    border: 1px solid black;
+    border-radius: 10px;
+    transition: opacity 1s;
+}
+
+.movies img:hover {
+    opacity: 1;
+    overflow: hidden;
+    box-shadow: 0 0 20px white;
+    border-radius: 10px;
+}
+
+.search {
+    background: linear-gradient(to right, rgba(142, 242, 255, 0), rgb(0, 143, 179));
+    margin-bottom: 40px;
+}
+
+.search h3 {
+    padding-top: 20px;
+    text-align: center;
+}
+
+#searchInput {
+    display: inline-block;
+    position: relative;
+    left: 440px;
+    padding: 10px;
+}
+
+#searchInput select {
+    height: 30px;
+    border: none;
+    border-radius: 10px;
+}
+
+#searchInput input {
+    height: 30px;
+    border: none;
+    border-radius: 10px;
+}
+
+#searchButton {
+    background: white;
+}
+
+#searchButton:hover {
+    cursor: pointer;
+    background: rgb(2, 116, 161);
 }
